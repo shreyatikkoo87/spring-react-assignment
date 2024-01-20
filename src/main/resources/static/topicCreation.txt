@@ -1,0 +1,25 @@
+C:\Users\STI111>docker run -p 9092:9092 -d bashj79/kafka-kraft
+
+
+C:\Users\STI111>
+C:\Users\STI111>docker ps
+CONTAINER ID   IMAGE                 COMMAND                 CREATED         STATUS         PORTS                    NAMES
+0eea3517248f   bashj79/kafka-kraft   "/bin/start_kafka.sh"   9 seconds ago   Up 7 seconds   0.0.0.0:9092->9092/tcp   laughing_kalam
+
+
+
+
+C:\Users\STI111>docker exec -it laughing_kalam /bin/bash
+bash-5.1# cd opt/kafka/bin
+bash-5.1# sh kafka-topics.sh --bootstrap-server localhost:9092 --create --topic my-first-topic --partitions 1 --replication-factor 1
+Created topic my-first-topic.
+bash-5.1# sh kafka-topics.sh --bootstrap-server localhost:9092 --list
+
+my-first-topic
+bash-5.1#
+bash-5.1# sh kafka-topics.sh --bootstrap-server localhost:9092 --list
+my-first-topic
+bash-5.1# sh kafka-console-producer.sh --bootstrap-server localhost:9092 --topic my-first-topic
+
+>>hello
+>
