@@ -69,4 +69,10 @@ class ReactServiceTest {
         Flux<String> names = service.demoMergeStreamsStatic();
         StepVerifier.create(names).expectNext("shreya","mayank","usha","ashok").verifyComplete();
     }
+
+    @Test
+    void demoZip() {
+       Flux<String>zipTuple = service.demoZip();
+       StepVerifier.create(zipTuple).expectNext("shreyaushaUSHAAarya").verifyComplete();
+    }
 }

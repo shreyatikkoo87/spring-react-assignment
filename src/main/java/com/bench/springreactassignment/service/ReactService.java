@@ -81,5 +81,14 @@ public class ReactService {
         return Flux.merge(name1,name2);
     }
 
+    public Flux<String> demoZip(){
+        Flux<String> name1 = Flux.just("shreya","mayank");
+        Flux<String> name2 = Flux.just("usha","ashok");
+        Flux<String> name3 = Flux.just("Aarya","Armaan");
+        Flux<String> name4 = Flux.just("ashok");
+
+        return Flux.zip(name1,name2,name3,name4).map(t -> t.getT1() + t.getT2() + t.getT2().toUpperCase() + t.getT3());
+
+    }
 
 }
